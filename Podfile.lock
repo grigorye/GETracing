@@ -1,21 +1,16 @@
 PODS:
-  - GEContinuousIntegration (0.1.2)
+  - GEContinuousIntegration (0.1.3)
 
 DEPENDENCIES:
-  - GEContinuousIntegration (from `https://github.com/grigorye/GEContinuousIntegration`)
+  - GEContinuousIntegration (~> 0.1)
 
-EXTERNAL SOURCES:
-  GEContinuousIntegration:
-    :git: https://github.com/grigorye/GEContinuousIntegration
-
-CHECKOUT OPTIONS:
-  GEContinuousIntegration:
-    :commit: d4f740c39b45d57d329de3138113b00d54afa73b
-    :git: https://github.com/grigorye/GEContinuousIntegration
+SPEC REPOS:
+  https://github.com/grigorye/podspecs.git:
+    - GEContinuousIntegration
 
 SPEC CHECKSUMS:
-  GEContinuousIntegration: e24b7cebd53632a7ad926607f72e091240184021
+  GEContinuousIntegration: e3bd2ef1ae39d232a8525cb098b016f79437f59e
 
-PODFILE CHECKSUM: 45a817cc69cac19514e8b209249abc1a8b1d4d37
+PODFILE CHECKSUM: 1db4eb6cebbc6de4089c5d65de1c59d36784d881
 
 COCOAPODS: 1.6.0.rc.2
