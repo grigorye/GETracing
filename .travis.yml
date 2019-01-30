@@ -5,6 +5,8 @@ env:
   matrix:
     - platforms=ios
     - platforms=macos
+before_install:
+  - . Pods/GEContinuousIntegration/travis/before_install
 script:
   - . Pods/GEContinuousIntegration/travis/script
 after_success:
