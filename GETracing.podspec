@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
 
   s.preserve_paths = "Tools/*"
 
-  s.swift_version = '4.2'
+  s.swift_version = '5.2'
 
   s.xcconfig = {
     'SWIFT_ACTIVE_COMPILATION_CONDITIONS' => 'GE_TRACE_ENABLED'
