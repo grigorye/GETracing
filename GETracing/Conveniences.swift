@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// When it replaces `x$` used without passing-through the logged value, disables logging and supresses evaluation of `argument`.
+/// When it replaces `x$` used without passing-through the logged value, disables logging and suppresses evaluation of `argument`.
 ///
 /// Consider Baz.swift that uses `x$` for logging value of `cos(foo)` and `foo`:
 /// ````
@@ -19,7 +19,7 @@ import Foundation
 ///     return bar
 /// }
 /// ````
-/// To temporarily supress logging *and* evaluation of `cos(foo)`
+/// To temporarily suppress logging *and* evaluation of `cos(foo)`
 /// ````
 /// $(cos(foo))
 /// ````
