@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// When it replaces `x$` used without passing-through the logged value, disables logging and supresses evaluation of `argument`.
+/// When it replaces `x$` used without passing-through the logged value, disables logging and suppresses evaluation of `argument`.
 ///
 /// Consider Baz.swift that uses `x$` for logging value of `cos(foo)` and `foo`:
 /// ````
@@ -19,7 +19,7 @@ import Foundation
 ///     return bar
 /// }
 /// ````
-/// To temporarily supress logging *and* evaluation of `cos(foo)`
+/// To temporarily suppress logging *and* evaluation of `cos(foo)`
 /// ````
 /// $(cos(foo))
 /// ````
@@ -75,7 +75,7 @@ prefix operator •
 @discardableResult
 public func x$<T>(file: StaticString = #file, line: Int = #line, column: UInt = #column, function: StaticString = #function, dso: UnsafeRawPointer = #dsohandle, _ valueClosure: @autoclosure () throws -> T) rethrows -> T {
 	let value = try valueClosure()
-	traceAsNecessary(value, file: file, line: line, column: column, function: function, moduleReference: .dso(dso), traceFunctionName: "x$")
+	traceAsNecessary(value, file: file, line: line, column: column, function: function, moduleReference: .dso(dso))
 	return value
 }
 
@@ -94,14 +94,14 @@ public struct Multiline {
 @discardableResult
 public func x$(file: StaticString = #file, line: Int = #line, column: UInt = #column, function: StaticString = #function, dso: UnsafeRawPointer = #dsohandle, _ valueClosure: @autoclosure () throws -> Multiline) rethrows -> Data {
 	let value = try valueClosure()
-	traceAsNecessary(value, file: file, line: line, column: column, function: function, moduleReference: .dso(dso), traceFunctionName: "x$")
+	traceAsNecessary(value, file: file, line: line, column: column, function: function, moduleReference: .dso(dso))
 	return value.data
 }
 
 @discardableResult
 public func z$<T>(file: StaticString = #file, line: Int = #line, column: UInt = #column, function: StaticString = #function, dso: UnsafeRawPointer = #dsohandle, _ valueClosure: @autoclosure () -> T) -> T {
 	let value = valueClosure()
-	traceAsNecessary(value, file: file, line: line, column: column, function: function, moduleReference: .dso(dso), traceFunctionName: "z$")
+	traceAsNecessary(value, file: file, line: line, column: column, function: function, moduleReference: .dso(dso))
 	return value
 }
 
@@ -109,6 +109,6 @@ public func assert$(_ condition: @autoclosure () -> Bool, _ message: @autoclosur
 	guard !condition() else {
 		return
 	}
-	let label = labelForArguments(of: #function, file: file, line: Int(line), column: column, function: function, dso: dso)
+	let label = labelForArguments(file: file, line: Int(line), column: column, function: function, dso: dso)
 	assertionFailure(label, file: file, line: line)
 }

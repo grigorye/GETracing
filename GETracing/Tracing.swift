@@ -33,7 +33,7 @@ func newLoggedValue<T>(for value: T) -> LoggedValue {
 	return InlineLoggedValue(value: value)
 }
 
-public func traceAsNecessary<T>(_ value: T, file: StaticString, line: Int, column: UInt, function: StaticString, moduleReference: SourceLocation.ModuleReference, traceFunctionName: StaticString) {
+public func traceAsNecessary<T>(_ value: T, file: StaticString, line: Int, column: UInt, function: StaticString, moduleReference: SourceLocation.ModuleReference) {
 	// swiftlint:disable:previous function_parameter_count
 	#if GE_TRACE_ENABLED
 	guard traceEnabled else {
@@ -43,7 +43,7 @@ public func traceAsNecessary<T>(_ value: T, file: StaticString, line: Int, colum
 	guard tracingEnabled(for: location) else {
 		return
 	}
-	log(newLoggedValue(for: value), on: Date(), at: location, traceFunctionName: traceFunctionName)
+	log(newLoggedValue(for: value), on: Date(), at: location)
 	#endif
 }
 

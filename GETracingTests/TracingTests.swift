@@ -78,7 +78,7 @@ class TraceTests : TraceAndLabelTestsBase {
 	func testWithTraceEnabled() {
 		traceEnabledEnforced = true
 		let column =   #column
-		let value = x$(foo); let line = #line
+		let value =  x$(foo); let line = #line
 		let fileURL = URL(fileURLWithPath: #file)
 		XCTAssertEqual(value, foo)
 		XCTAssertEqual(tracedRecords.map {$0.location.line}, [line])
@@ -90,7 +90,7 @@ class TraceTests : TraceAndLabelTestsBase {
 		traceEnabledEnforced = true
 		let column =   #column
 		let column_2 =    #column
-		let value = x$(x$(foo)); let line = #line
+		let value =  x$(x$(foo)); let line = #line
 		let fileURL = URL(fileURLWithPath: #file)
 		XCTAssertEqual(value, foo)
 		XCTAssertEqual(tracedRecords.map {$0.location.line}, [line, line])
@@ -101,8 +101,8 @@ class TraceTests : TraceAndLabelTestsBase {
 	func testComplexNestedWithTraceEnabled() {
 		traceEnabledEnforced = true
 		let innerColumn =         #column
-		let column =                   #column
-		let value = x$("xxx" + x$(foo) + "baz"); let line = #line
+		let column =   #column
+		let value =  x$("xxx" + x$(foo) + "baz"); let line = #line
 		let fileURL = URL(fileURLWithPath: #file)
 		XCTAssertEqual(value, "xxx" + foo + "baz")
 		XCTAssertEqual(tracedRecords.map {$0.location.line}, [line, line])
@@ -112,7 +112,7 @@ class TraceTests : TraceAndLabelTestsBase {
 	}
 	func testComplexWithTraceEnabled() {
 		traceEnabledEnforced = true
-		let column =               #column
+		let column =  #column
 		let value = x$("xxx" + foo + "baz"); let line = #line
 		let fileURL = URL(fileURLWithPath: #file)
 		XCTAssertEqual(value, "xxx" + foo + "baz")
@@ -299,7 +299,7 @@ class LabelTests : TraceAndLabelTestsBase {
 		XCTAssertEqual(L(foo), "foo: \(debugPrinted(foo))")
 		sourceLabelsEnabledEnforced = false
 		let cln = #column
-		let l = L(foo)
+		let l =  L(foo)
 		XCTAssertEqual(l, ".\(cln): \(debugPrinted(foo))")
 	}
 	func testNestedLabeledString() {
@@ -308,22 +308,22 @@ class LabelTests : TraceAndLabelTestsBase {
 		sourceLabelsEnabledEnforced = false
 		let cln = #column
 		let cln_2 = #column
-		let l = L(L(foo))
+		let l =  L(L(foo))
 		XCTAssertEqual(l, ".\(cln): \".\(cln_2): \\\"bar\\\"\"")
 	}
 	func testLabelWithMissingSource() {
 		let s = "foo"
 		let sourceFile: StaticString = "/tmp/Missing.swift"
-		let cln = #column - 1
-		let l = L(file: sourceFile, s)
+		let cln = #column
+		let l =  L(file: sourceFile, s)
 		XCTAssertEqual(l, ".\(cln):?: \(debugPrinted(s))")
 	}
 	func testLabelWithNoSource() {
 		let s = "foo"
 		var v = "foo"
 		withUnsafePointer(to: &v) { p in
-			let cln = #column - 1
-			let l = L(dso: p, s)
+			let cln = #column
+			let l =  L(dso: p, s)
 			XCTAssertEqual(l, ".\(cln):?: \(debugPrinted(s))")
 		}
 	}

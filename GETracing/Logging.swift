@@ -37,11 +37,11 @@ public var logRecord: ((LogRecord) -> Void)? = {
 	defaultLog(record: $0)
 }
 
-func log(_ value: LoggedValue, on date: Date, at location: SourceLocation, traceFunctionName: StaticString) {
+func log(_ value: LoggedValue, on date: Date, at location: SourceLocation) {
 	guard let logRecord = logRecord else {
 		return
 	}
-	let label: String = labelForArguments(of: traceFunctionName, location: location)
+	let label: String = labelForArguments(location: location)
 	let message = value.logMessage()
 	let record = LogRecord(message: message, label: label, date: date, location: location)
 	logRecord(record)
