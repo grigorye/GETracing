@@ -38,6 +38,9 @@ public func sourceFileURLFor(file: StaticString, dso: UnsafeRawPointer) throws -
 		throw Error.missingBundleForDSO(file: file)
 	}
 	
+    #if SWIFT_PACKAGE
+    return URL(fileURLWithPath: "\(file)")
+    #else
 	let fileURL = URL(fileURLWithPath: file.description)
 	let (sourceModuleURL, resourcePath) = sourceModuleURLAndSourceFileResourcePath(forSource: fileURL)
 	let sourceModuleName = sourceModuleURL.lastPathComponent
@@ -56,4 +59,5 @@ public func sourceFileURLFor(file: StaticString, dso: UnsafeRawPointer) throws -
 		throw Error.missingFileInSourcesBundle(file: file, sourcesBundleURL: sourcesBundleURL, subdirectory: subdirectory)
 	}
 	return fileURLInBundle
+    #endif
 }
