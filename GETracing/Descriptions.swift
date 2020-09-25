@@ -17,7 +17,7 @@ public var tracedValueDescriptionGenerator: (Any) -> String = { value in
 	return String(reflecting: value)
 }
 
-var dumpInTraceEnabledEnforced: Bool?
+public var dumpInTraceEnabledEnforced: Bool?
 private var dumpInTraceEnabled: Bool {
 	return dumpInTraceEnabledEnforced ?? UserDefaults.standard.bool(forKey: "dumpInTraceEnabled")
 }
