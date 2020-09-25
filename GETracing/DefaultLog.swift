@@ -27,8 +27,18 @@ public var defaultLoggedTextTerminator: String {
 }
 
 public func defaultLogText(_ text: String) {
-	print(text, terminator: defaultLoggedTextTerminator)
+	print(text, terminator: defaultLoggedTextTerminator, to: &standardError)
 }
+
+import func Darwin.fputs
+import var Darwin.stderr
+
+private struct StderrOutputStream: TextOutputStream {
+	mutating func write(_ string: String) {
+		fputs(string, stderr)
+	}
+}
+private var standardError = StderrOutputStream()
 
 /// Returns text for logging given record.
 public var loggedTextForRecord = { (record: LogRecord) in
