@@ -71,7 +71,11 @@ extension SourceLocation {
 	public func sourceFileURL() throws -> URL {
 		switch moduleReference {
 		case .dso(let dso):
+			#if SWIFT_PACKAGE
+			return URL(fileURLWithPath: "\(file)")
+			#else
 			return try sourceFileURLFor(file: file, dso: dso)
+			#endif
 		case .playground:
 			return fileURL
 		}
