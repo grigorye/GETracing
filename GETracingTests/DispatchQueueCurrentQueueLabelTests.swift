@@ -9,6 +9,7 @@
 import GETracing
 import XCTest
 
+#if !os(Linux)
 class DispatchQueueCurrentQueueLabelTests: TraceAndLabelTestsBase {
 	
 	func testExample() {
@@ -28,3 +29,4 @@ class DispatchQueueCurrentQueueLabelTests: TraceAndLabelTestsBase {
 		XCTAssertNotEqual(mainQueueLabel, globalQueueLabel)
 	}
 }
+#endif
