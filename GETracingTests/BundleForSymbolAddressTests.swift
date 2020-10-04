@@ -11,6 +11,8 @@ import Foundation
 
 import XCTest
 
+#if !os(Linux)
+
 class BundleForSymbolAddressTests : XCTestCase {
 	
 	func testDSOHandle() {
@@ -68,3 +70,5 @@ class BundleForSymbolAddressTests : XCTestCase {
 		XCTAssertEqual(Bundle.current, Bundle(for: type(of: self)))
 	}
 }
+
+#endif
