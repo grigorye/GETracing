@@ -324,7 +324,11 @@ class LabelTests : TraceAndLabelTestsBase {
 		withUnsafePointer(to: &v) { p in
 			let cln = #column
 			let l =  L(dso: p, s)
+            #if SWIFT_PACKAGE
+            XCTAssertEqual(l, "dso: p, s: \"foo\"")
+            #else
 			XCTAssertEqual(l, ".\(cln):?: \(debugPrinted(s))")
+            #endif
 		}
 	}
 	func testLabeledCompoundExpressions() {
