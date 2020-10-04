@@ -30,8 +30,10 @@ public func defaultLogText(_ text: String) {
 	print(text, terminator: defaultLoggedTextTerminator, to: &standardError)
 }
 
+#if !os(Linux)
 import func Darwin.fputs
 import var Darwin.stderr
+#endif
 
 private struct StderrOutputStream: TextOutputStream {
 	mutating func write(_ string: String) {

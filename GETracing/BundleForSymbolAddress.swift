@@ -43,6 +43,8 @@ func bundleURLFromSharedObjectName(_ objectName: String) -> URL? {
 	return nil
 }
 
+#if !os(Linux)
+
 extension Bundle {
 	
 	class var current: Bundle! {
@@ -78,3 +80,6 @@ extension Bundle {
 		self.init(url: bundleURL)
 	}
 }
+
+#endif
+
