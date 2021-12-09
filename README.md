@@ -6,6 +6,8 @@
 
 Easily trace value *and literal* of a Swift expression right at the point of evaluation.
 
+If the built-in [dump](https://developer.apple.com/documentation/swift/1539127-dump) could capture the literal of the expression that produces the value on the caller side<sup id="a1">[*](#va-args)</sup>, this whole thing would likely not exist. 
+
 ## Why
 
 * Avoid repeating yourself.
@@ -47,3 +49,7 @@ It's required to bundle the corresponding source files together with the modules
 ## Related Projects
 
 [Tuna Xcode Plugin](https://github.com/dealforest/Tuna)
+
+--
+
+<b id="va-args">*</b> Long live ```#__VA_ARGS___``` and C-preprocessor!
