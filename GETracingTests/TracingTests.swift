@@ -1,11 +1,3 @@
-//
-//  TracingTests.swift
-//  GEBase
-//
-//  Created by Grigory Entin on 22/11/15.
-//  Copyright © 2015 Grigory Entin. All rights reserved.
-//
-
 @testable import GETracing
 import XCTest
 

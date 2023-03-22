@@ -1,11 +1,3 @@
-//
-//  DispatchQueueCurrentQueueLabelTests.swift
-//  GETracingTests
-//
-//  Created by Grigory Entin on 08/04/2018.
-//  Copyright © 2018 Grigory Entin. All rights reserved.
-//
-
 import GETracing
 import XCTest
 

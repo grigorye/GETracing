@@ -1,10 +1,3 @@
-//
-//  DefaultLogTests.swift
-//  GETracing-iOS-Unit-Tests
-//
-//  Created by Grigory Entin on 02/12/2018.
-//
-
 import GETracing
 import XCTest
 

@@ -1,11 +1,3 @@
-//
-//  Labeling.swift
-//  GETracing
-//
-//  Created by Grigory Entin on 24.10.16.
-//  Copyright © 2016 Grigory Entin. All rights reserved.
-//
-
 public func L<T>(file: StaticString = #file, line: Int = #line, column: UInt = #column, function: StaticString = #function, dso: UnsafeRawPointer = #dsohandle, _ valueClosure: @autoclosure () -> T) -> String {
 	// swiftlint:disable:previous identifier_name
 	let value = valueClosure()

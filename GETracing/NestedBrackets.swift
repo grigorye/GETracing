@@ -1,11 +1,3 @@
-//
-//  NestedBrackets.swift
-//  GEBase
-//
-//  Created by Grigory Entin on 22.10.16.
-//  Copyright © 2016 Grigory Entin. All rights reserved.
-//
-
 import Foundation
 
 extension String {

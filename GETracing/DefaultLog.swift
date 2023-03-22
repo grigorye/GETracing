@@ -1,11 +1,3 @@
-//
-//  DefaultLog.swift
-//  GEBase
-//
-//  Created by Grigory Entin on 14/02/16.
-//  Copyright © 2016 Grigory Entin. All rights reserved.
-//
-
 import Foundation
 
 // MARK: - Main Logging

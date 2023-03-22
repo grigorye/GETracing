@@ -1,10 +1,3 @@
-//
-//  SourceFiles.swift
-//  GETracing
-//
-//  Created by Grigory Entin on 28/01/2019.
-//
-
 import Foundation
 
 func sourceModuleURLAndSourceFileResourcePath(forSource url: URL) -> (URL, String) {

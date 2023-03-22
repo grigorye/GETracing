@@ -1,11 +1,3 @@
-//
-//  SourceLocation.swift
-//  GEBase
-//
-//  Created by Grigory Entin on 05/05/16.
-//  Copyright © 2016 Grigory Entin. All rights reserved.
-//
-
 import Foundation
 
 struct SourceFileAndFunction {

@@ -1,11 +1,3 @@
-//
-//  Conveniences.swift
-//  GETracing
-//
-//  Created by Grigory Entin on 24.10.16.
-//  Copyright © 2016 Grigory Entin. All rights reserved.
-//
-
 import Foundation
 
 /// When it replaces `x$` used without passing-through the logged value, disables logging and suppresses evaluation of `argument`.

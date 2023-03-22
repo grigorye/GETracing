@@ -1,10 +1,3 @@
-//
-//  SourceLiterals.swift
-//  GETracing
-//
-//  Created by Grigory Entin on 28/01/2019.
-//
-
 import Foundation
 
 public func literalForArguments(contents: String, line: Int, column: UInt, function: StaticString) -> String {

@@ -1,11 +1,3 @@
-//
-//  BundleForSymbolAddress.swift
-//  GEBase
-//
-//  Created by Grigory Entin on 16/11/15.
-//  Copyright © 2015 Grigory Entin. All rights reserved.
-//
-
 import Foundation
 
 func bundleURLFromSharedObjectName(_ objectName: String) -> URL? {

@@ -1,11 +1,3 @@
-//
-//  Sugar.swift
-//  GETracing
-//
-//  Created by Grigory Entin on 09/11/2018.
-//  Copyright © 2018 Grigory Entin. All rights reserved.
-//
-
 import Foundation
 
 func nnil<T>(_ v: T?, file: StaticString = #file, line: UInt = #line) -> T? {
