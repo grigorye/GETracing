@@ -33,9 +33,10 @@ import Foundation
 /// ````
 /// , ommitting `x$`, leaving the possibility to enable logging again just by adding back x$.
 /// - seealso: `x$`.
-public prefix func •<T>(argument: @autoclosure () -> T) {
-	// swiftlint:disable:previous identifier_name
+public prefix func • (argument: @autoclosure () -> some Any) {
+    // swiftlint:disable:previous identifier_name
 }
+
 prefix operator •
 
 /// Passes-through `value`, logging it as necessary with `loggers`.
@@ -66,41 +67,41 @@ prefix operator •
 /// - seealso: `loggers`.
 @discardableResult
 public func x$<T>(file: StaticString = #file, line: Int = #line, column: UInt = #column, function: StaticString = #function, dso: UnsafeRawPointer = #dsohandle, _ valueClosure: @autoclosure () throws -> T) rethrows -> T {
-	let value = try valueClosure()
-	traceAsNecessary(value, file: file, line: line, column: column, function: function, moduleReference: .dso(dso))
-	return value
+    let value = try valueClosure()
+    traceAsNecessary(value, file: file, line: line, column: column, function: function, moduleReference: .dso(dso))
+    return value
 }
 
 public struct Multiline {
-	let data: Data
+    let data: Data
 	
-	public init(_ data: Data) {
-		self.data = data
-	}
+    public init(_ data: Data) {
+        self.data = data
+    }
 	
-	public static func multiline(_ data: Data) -> Multiline {
-		return .init(data)
-	}
+    public static func multiline(_ data: Data) -> Multiline {
+        return .init(data)
+    }
 }
 
 @discardableResult
 public func x$(file: StaticString = #file, line: Int = #line, column: UInt = #column, function: StaticString = #function, dso: UnsafeRawPointer = #dsohandle, _ valueClosure: @autoclosure () throws -> Multiline) rethrows -> Data {
-	let value = try valueClosure()
-	traceAsNecessary(value, file: file, line: line, column: column, function: function, moduleReference: .dso(dso))
-	return value.data
+    let value = try valueClosure()
+    traceAsNecessary(value, file: file, line: line, column: column, function: function, moduleReference: .dso(dso))
+    return value.data
 }
 
 @discardableResult
 public func z$<T>(file: StaticString = #file, line: Int = #line, column: UInt = #column, function: StaticString = #function, dso: UnsafeRawPointer = #dsohandle, _ valueClosure: @autoclosure () -> T) -> T {
-	let value = valueClosure()
-	traceAsNecessary(value, file: file, line: line, column: column, function: function, moduleReference: .dso(dso))
-	return value
+    let value = valueClosure()
+    traceAsNecessary(value, file: file, line: line, column: column, function: function, moduleReference: .dso(dso))
+    return value
 }
 
 public func assert$(_ condition: @autoclosure () -> Bool, _ message: @autoclosure () -> String = String(), file: StaticString = #file, line: UInt = #line, column: UInt = #column, function: StaticString = #function, dso: UnsafeRawPointer = #dsohandle) {
-	guard !condition() else {
-		return
-	}
-	let label = labelForArguments(file: file, line: Int(line), column: column, function: function, dso: dso)
-	assertionFailure(label, file: file, line: line)
+    guard !condition() else {
+        return
+    }
+    let label = labelForArguments(file: file, line: Int(line), column: column, function: function, dso: dso)
+    assertionFailure(label, file: file, line: line)
 }
