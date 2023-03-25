@@ -8,6 +8,10 @@ on:
   pull_request:
     branches: [master]
 
+defaults:
+  run:
+    shell: bash --noprofile --norc -euxo pipefail {0}
+
 jobs:
   macos:
     runs-on: macos-latest
