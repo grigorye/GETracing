@@ -1,17 +1,17 @@
 @testable import GETracing
 import XCTest
 
-class LoggingTests : TraceAndLabelTestsBase {
+class LoggingTests: TraceAndLabelTestsBase {
 	
-	func testTraceWithNoLoggers() {
+    func testTraceWithNoLoggers() {
 		
-		traceEnabledEnforced = true
+        traceEnabledEnforced = true
 		
-		x$(0)
-	}
+        x$(0)
+    }
 	
-	func testLogWithNoSourceOrLabel() {
+    func testLogWithNoSourceOrLabel() {
 		
-		logWithNoSourceOrLabel(.inline("foo"))
-	}
+        logWithNoSourceOrLabel(.inline("foo"))
+    }
 }

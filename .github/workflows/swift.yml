@@ -23,16 +23,10 @@ jobs:
       runs-on: ubuntu-latest
 
       container:
-        image: swift:5.3
+        image: swift:5.7
 
       steps:
         - name: Checkout
           uses: actions/checkout@v1
-        - uses: actions/cache@v2
-          with:
-            path: .build
-            key: ${{ runner.os }}-spm-${{ hashFiles('**/Package.resolved') }}
-            restore-keys: |
-              ${{ runner.os }}-spm-
         - name: Build and Test
           run: swift test --enable-test-discovery

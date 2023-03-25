@@ -3,13 +3,13 @@ import XCTest
 
 let playgroundFile = #file
 
-class PlaygroundSupportTests : TraceAndLabelTestsBase {
+class PlaygroundSupportTests: TraceAndLabelTestsBase {
 	
-	func testSimple() {
+    func testSimple() {
 		
-		traceEnabledEnforced = true
-		sourceLabelsEnabledEnforced = true
+        traceEnabledEnforced = true
+        sourceLabelsEnabledEnforced = true
 		
-		_ = x$(0)
-	}
+        _ = x$(0)
+    }
 }

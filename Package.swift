@@ -18,7 +18,7 @@ let package = Package(
             dependencies: [],
             exclude: ["ModuleExports-GETracing.swift"],
             swiftSettings: [
-                .define("GE_TRACE_ENABLED")
+                .define("GE_TRACE_ENABLED"),
             ]
         ),
         .testTarget(
