@@ -4,16 +4,16 @@
 
 # GETracing
 
-Easily trace value *and literal* of a Swift expression right at the point of evaluation.
+Easily trace value _and literal_ of a Swift expression right at the point of evaluation.
 
-If the built-in [dump](https://developer.apple.com/documentation/swift/1539127-dump) could capture the literal of the expression that produces the value on the caller side<sup id="a1">[*](#va-args)</sup>, this whole thing would likely not exist. 
+If the built-in [dump](https://developer.apple.com/documentation/swift/1539127-dump) could capture the literal of the expression that produces the value on the caller side<sup id="a1">[\*](#va-args)</sup>, this whole thing would likely not exist.
 
 ## Why
 
-* Avoid repeating yourself.
-* Avoid introducing variables just to keep a value of expression (otherwise re-evaluated) for logging. Evaluate just once, whether there's tracing or not.
-* Get the expression literals traced in addition to the values.
-* Keep the code changes to the minimum. Make tracing (and reverting from tracing) as seamless as possible.
+- Avoid repeating yourself.
+- Avoid introducing variables just to keep a value of expression (otherwise re-evaluated) for logging. Evaluate just once, whether there's tracing or not.
+- Get the expression literals traced in addition to the values.
+- Keep the code changes to the minimum. Make tracing (and reverting from tracing) as seamless as possible.
 
 ## What
 
@@ -25,13 +25,13 @@ that needs tracing is replaced with
 
     x$(expr)
 
-and that's it. Nested expressions might be traced as well. 
+and that's it. Nested expressions might be traced as well.
 
 ![](Screenshots/Playground.png)
 
 ## Configration
 
-`x$` alternative might be [defined as necessary](x-source-tag://Tracing-Function-Sample) by the client. 
+`x$` alternative might be [defined as necessary](x-source-tag://Tracing-Function-Sample) by the client.
 
 Logging implementation should be [defined](x-source-tag://Tracing-Sample-Loggers-Configuration) by the client.
 
@@ -40,7 +40,6 @@ Logging implementation should be [defined](x-source-tag://Tracing-Sample-Loggers
 Tracing might be reverted by removal of `x$()` or even removal of `x$`, leaving `()` in place.
 
 Alternatively, tracing might be disabled per-block.
-
 
 ## Current Limitations
 
@@ -52,4 +51,4 @@ It's required to bundle the corresponding source files together with the modules
 
 --
 
-<b id="va-args">*</b> Long live ```#__VA_ARGS___``` and C-preprocessor!
+<b id="va-args">\*</b> Long live `#__VA_ARGS___` and C-preprocessor!
