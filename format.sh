@@ -5,3 +5,4 @@ set -euo pipefail
 
 mint run -n swiftformat "$@"
 pipenv run yamlfix "$@"
+bundle exec rubocop -A "$@"
