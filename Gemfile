@@ -2,10 +2,10 @@
 
 source 'https://rubygems.org'
 
-gem 'cocoapods', '~> 1.9'
-gem 'cocoapods-generate', '~> 1.3'
+gem 'cocoapods'
+gem 'cocoapods-generate'
 gem 'coveralls', require: false
-gem 'xcov', '~> 1.5'
+gem 'xcov'
 gem 'xcpretty'
 
-gem 'rubocop', '~> 1.42'
+gem 'rubocop'
