@@ -1,0 +1,14 @@
+AllCops:
+  NewCops: enable
+
+Naming/FileName:
+  Exclude:
+    - '*.podspec'
+
+Metrics/BlockLength:
+  Exclude:
+    - '*.podspec'
+
+Naming/HeredocDelimiterNaming:
+  Exclude:
+    - '*.podspec'
