@@ -1,4 +1,5 @@
 #!/usr/bin/ruby
+# frozen_string_literal: true
 
 require 'xcodeproj'
 
@@ -9,15 +10,15 @@ embed_sources_phase_name = 'Embed Sources' # Used for lookup of an existing phas
 
 project = Xcodeproj::Project.open(project_path)
 
-project.targets.select {|t| t.kind_of? Xcodeproj::Project::Object::PBXNativeTarget }.map do |target|
+project.targets.select { |t| t.is_a? Xcodeproj::Project::Object::PBXNativeTarget }.map do |target|
   source_build_phase = target.source_build_phase
 
   pbx_build_files = source_build_phase.files.to_a.select do |pbx_build_file|
     file_ref = pbx_build_file.file_ref
-    file_ref.source_tree != "BUILT_PRODUCTS_DIR" && (File.extname(file_ref.path) == ".swift")
+    file_ref.source_tree != 'BUILT_PRODUCTS_DIR' && (File.extname(file_ref.path) == '.swift')
   end
 
-  unless embed_sources_phase = target.copy_files_build_phases.find { |phase| phase.name == embed_sources_phase_name }
+  unless (embed_sources_phase = target.copy_files_build_phases.find { |phase| phase.name == embed_sources_phase_name })
     embed_sources_phase = target.new_copy_files_build_phase(embed_sources_phase_name)
   end
   embed_sources_phase.symbol_dst_subfolder_spec = :resources
@@ -26,7 +27,8 @@ project.targets.select {|t| t.kind_of? Xcodeproj::Project::Object::PBXNativeTarg
   new_pbx_build_files_for_embed_sources = pbx_build_files.map do |pbx_build_file|
     new_pbx_build_file = embed_sources_phase.add_file_reference(pbx_build_file.file_ref, avoid_duplicates: true)
     # This should not be new pbx_build_file, but one of Sources.
-    fail if pbx_build_file != new_pbx_build_file
+    raise if pbx_build_file != new_pbx_build_file
+
     new_pbx_build_file
   end
 
@@ -36,4 +38,4 @@ project.targets.select {|t| t.kind_of? Xcodeproj::Project::Object::PBXNativeTarg
   end
 end
 
-project.save()
+project.save
