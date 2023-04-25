@@ -30,3 +30,12 @@ jobs:
         uses: actions/checkout@v1
       - name: Build and Test
         run: swift test --enable-test-discovery
+  lint:
+    runs-on: ubuntu-latest
+    container:
+      image: grigorye/ge-workflows:latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Lint
+        run: mint run swiftlint
