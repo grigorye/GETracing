@@ -33,7 +33,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     container:
-      image: grigorye/ge-workflows:latest
+      image: grigorye/getracing:latest
       options: --user root
     steps:
       - name: Checkout
