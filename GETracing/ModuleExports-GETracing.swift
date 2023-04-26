@@ -4,7 +4,7 @@ import Foundation
 
 internal var moduleTracingEnabled: Bool = {
     let bundle = Bundle(for: #dsohandle)!
-    let valueInInfoPlist = (bundle.object(forInfoDictionaryKey: "GEModuleTracingEnabled") as! NSNumber?)?.boolValue ?? true
+    let valueInInfoPlist = (bundle.object(forInfoDictionaryKey: "GEModuleTracingEnabled") as? NSNumber?)?.boolValue ?? true
     return valueInInfoPlist
 }()
 
