@@ -1,4 +1,4 @@
-FROM ge-workflows
+FROM grigorye/ge-workflows
 
 COPY Gemfile Gemfile.lock ./
 RUN bundle install
